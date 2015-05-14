@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B28EC6571B04401900857622 /* MenuItemsAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6561B04401900857622 /* MenuItemsAssistant.swift */; };
+		B28EC6591B0448D000857622 /* PlaceholderMenuItemAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6581B0448D000857622 /* PlaceholderMenuItemAssistant.swift */; };
 		B2D39B281AF670CE003D6738 /* BurntCocoaUI.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D39B271AF670CE003D6738 /* BurntCocoaUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2D39B2E1AF670CE003D6738 /* BurntCocoaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D39B221AF670CE003D6738 /* BurntCocoaUI.framework */; };
 		B2D39B351AF670CE003D6738 /* BurntCocoaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D39B341AF670CE003D6738 /* BurntCocoaUITests.m */; };
+		B2D39B411AF670FE003D6738 /* MenuAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D39B3E1AF670FE003D6738 /* MenuAssistant.swift */; };
+		B2D39B421AF670FE003D6738 /* PopUpButtonAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D39B3F1AF670FE003D6738 /* PopUpButtonAssistant.swift */; };
+		B2D39B431AF670FE003D6738 /* SegmentedControlAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D39B401AF670FE003D6738 /* SegmentedControlAssistant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +28,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B28EC6561B04401900857622 /* MenuItemsAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsAssistant.swift; sourceTree = "<group>"; };
+		B28EC6581B0448D000857622 /* PlaceholderMenuItemAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderMenuItemAssistant.swift; sourceTree = "<group>"; };
 		B2D39B221AF670CE003D6738 /* BurntCocoaUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BurntCocoaUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D39B261AF670CE003D6738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2D39B271AF670CE003D6738 /* BurntCocoaUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BurntCocoaUI.h; sourceTree = "<group>"; };
 		B2D39B2D1AF670CE003D6738 /* BurntCocoaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BurntCocoaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D39B331AF670CE003D6738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2D39B341AF670CE003D6738 /* BurntCocoaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BurntCocoaUITests.m; sourceTree = "<group>"; };
+		B2D39B3E1AF670FE003D6738 /* MenuAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuAssistant.swift; sourceTree = "<group>"; };
+		B2D39B3F1AF670FE003D6738 /* PopUpButtonAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpButtonAssistant.swift; sourceTree = "<group>"; };
+		B2D39B401AF670FE003D6738 /* SegmentedControlAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlAssistant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				B2D39B271AF670CE003D6738 /* BurntCocoaUI.h */,
+				B28EC6561B04401900857622 /* MenuItemsAssistant.swift */,
+				B2D39B3E1AF670FE003D6738 /* MenuAssistant.swift */,
+				B28EC6581B0448D000857622 /* PlaceholderMenuItemAssistant.swift */,
+				B2D39B3F1AF670FE003D6738 /* PopUpButtonAssistant.swift */,
+				B2D39B401AF670FE003D6738 /* SegmentedControlAssistant.swift */,
 				B2D39B251AF670CE003D6738 /* Supporting Files */,
 			);
 			path = BurntCocoaUI;
@@ -209,6 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28EC6571B04401900857622 /* MenuItemsAssistant.swift in Sources */,
+				B28EC6591B0448D000857622 /* PlaceholderMenuItemAssistant.swift in Sources */,
+				B2D39B411AF670FE003D6738 /* MenuAssistant.swift in Sources */,
+				B2D39B421AF670FE003D6738 /* PopUpButtonAssistant.swift in Sources */,
+				B2D39B431AF670FE003D6738 /* SegmentedControlAssistant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +337,7 @@
 		B2D39B391AF670CE003D6738 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -328,12 +349,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B2D39B3A1AF670CE003D6738 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -399,6 +422,7 @@
 				B2D39B3A1AF670CE003D6738 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2D39B3B1AF670CE003D6738 /* Build configuration list for PBXNativeTarget "BurntCocoaUITests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +431,7 @@
 				B2D39B3D1AF670CE003D6738 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

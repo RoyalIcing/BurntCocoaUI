@@ -41,7 +41,7 @@ extension BaseContentTypeChoice: MenuItemRepresentative {
 class ExampleViewController: NSViewController {
   
 	@IBOutlet var baseContentTypeChoicePopUpButton: NSPopUpButton! // Hooked up in storyboard/nib
-	var baseContentTypeChoicePopUpButtonAssistant: PopUpButtonAssistant<BaseContentTypeChoice>?
+	var baseContentTypeChoicePopUpButtonAssistant: PopUpButtonAssistant<BaseContentTypeChoice>!
 
 	var chosenBaseContentChoice: BaseContentTypeChoice = .LocalHTMLPages
 	
@@ -75,10 +75,7 @@ class ExampleViewController: NSViewController {
 	}
 	
 	@IBAction func changeBaseContentTypeFilter(sender: NSPopUpButton) {
-		if let
-			assistant = baseContentTypeChoicePopUpButtonAssistant,
-			contentChoice = assistant.selectedItemRepresentative
-		{
+		if let contentChoice = baseContentTypeChoicePopUpButtonAssistant.selectedItemRepresentative {
 			chosenBaseContentChoice = contentChoice
 			
 			reloadData()

@@ -12,7 +12,7 @@ import Cocoa
 /**
 MenuAssistant
 */
-public class MenuAssistant<T: MenuItemRepresentative> {
+public class MenuAssistant<T: UIChoiceRepresentative> {
 	public typealias Item = T
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	
@@ -101,10 +101,12 @@ public class MenuAssistant<T: MenuItemRepresentative> {
 		
 		:returns: The item representative that matched the menu item.
 	*/
-	public func itemRepresentativeForMenuItem(menuItem menuItemToFind: NSMenuItem) -> Item? {
+	public func itemRepresentativeForMenuItem(menuItemToFind: NSMenuItem) -> Item? {
 		let index = menu.indexOfItem(menuItemToFind)
-		if let itemRepresentative = menuItemRepresentatives[index] {
-			return itemRepresentative
+		if index != -1 {
+			if let itemRepresentative = menuItemRepresentatives[index] {
+				return itemRepresentative
+			}
 		}
 		
 		return nil

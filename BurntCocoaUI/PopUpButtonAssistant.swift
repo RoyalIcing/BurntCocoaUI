@@ -9,9 +9,7 @@
 import Cocoa
 
 
-// Uses MenuAssistant’s MenuItemRepresentative protocol
-
-public class PopUpButtonAssistant<T: MenuItemRepresentative> {
+public class PopUpButtonAssistant<T: UIChoiceRepresentative> {
 	public typealias Item = T
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	
@@ -56,7 +54,7 @@ public class PopUpButtonAssistant<T: MenuItemRepresentative> {
 	/**
 		The item representative for the selected menu item, or nil if no menu item is selected.
 	*/
-	var selectedItemRepresentative: Item? {
+	public var selectedItemRepresentative: Item? {
 		get {
 			let index = popUpButton.indexOfSelectedItem
 			if index != -1 {
@@ -70,7 +68,7 @@ public class PopUpButtonAssistant<T: MenuItemRepresentative> {
 	/**
 		The unique identifier for the selected menu item, or nil if no menu item is selected.
 	*/
-	var selectedUniqueIdentifier: ItemUniqueIdentifier? {
+	public var selectedUniqueIdentifier: ItemUniqueIdentifier? {
 		get {
 			return selectedItemRepresentative?.uniqueIdentifier
 		}

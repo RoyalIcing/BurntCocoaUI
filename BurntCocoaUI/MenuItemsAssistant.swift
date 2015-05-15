@@ -9,17 +9,7 @@
 import Cocoa
 
 
-/**
-What each menu item is represented with. Recommended to be used on an enum. This can either be a model enum directly using an extension, or you can use a specific enum.
-*/
-public protocol MenuItemRepresentative {
-	var title: String { get }
-	
-	typealias UniqueIdentifier: Hashable
-	var uniqueIdentifier: UniqueIdentifier { get }
-}
-
-public struct MenuItemCustomization<T: MenuItemRepresentative> {
+public struct MenuItemCustomization<T: UIChoiceRepresentative> {
 	/**
 		Customize the title dynamically, called for each menu item representative.
 	*/
@@ -46,7 +36,7 @@ public struct MenuItemCustomization<T: MenuItemRepresentative> {
 	public var enabled: ((menuItemRepresentative: T) -> Bool)?
 }
 
-public class MenuItemsAssistantCache<T: MenuItemRepresentative> {
+public class MenuItemsAssistantCache<T: UIChoiceRepresentative> {
 	typealias ItemUniqueIdentifier = T.UniqueIdentifier
 	
 	/// Menu items are cached so they are not thrown away and recreated every time.
@@ -56,12 +46,12 @@ public class MenuItemsAssistantCache<T: MenuItemRepresentative> {
 /**
 MenuItemsAssistant
 */
-public class MenuItemsAssistant<T: MenuItemRepresentative> {
+public class MenuItemsAssistant<T: UIChoiceRepresentative> {
 	public typealias Item = T
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	
 	/**
-		Pass your implementation of MenuItemRepresentative. Use nil for separator menu items.
+		Pass your implementation of UIChoiceRepresentative. Use nil for separator menu items.
 	*/
 	public var menuItemRepresentatives: [Item?]!
 	

@@ -9,7 +9,7 @@
 import Cocoa
 
 
-public class PlaceholderMenuItemAssistant<T: MenuItemRepresentative> {
+public class PlaceholderMenuItemAssistant<T: UIChoiceRepresentative> {
 	public typealias Item = T
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	

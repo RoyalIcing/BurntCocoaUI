@@ -9,14 +9,7 @@
 import Cocoa
 
 
-public protocol SegmentedItemRepresentative {
-	var title: String { get }
-	
-	typealias UniqueIdentifier: Hashable
-	var uniqueIdentifier: UniqueIdentifier { get }
-}
-
-public struct SegmentedItemCustomization<T: SegmentedItemRepresentative> {
+public struct SegmentedItemCustomization<T: UIChoiceRepresentative> {
 	public typealias Item = T
 	
 	/**
@@ -30,7 +23,7 @@ public struct SegmentedItemCustomization<T: SegmentedItemRepresentative> {
 }
 
 
-public class SegmentedControlAssistant<T: SegmentedItemRepresentative> {
+public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 	public typealias Item = T
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	
@@ -121,7 +114,7 @@ public class SegmentedControlAssistant<T: SegmentedItemRepresentative> {
 	/**
 		The item representative for the selected segment, or nil if no segment is selected.
 	*/
-	var selectedItemRepresentative: Item? {
+	public var selectedItemRepresentative: Item? {
 		get {
 			let index = segmentedCell.selectedSegment
 			if index != -1 {
@@ -130,12 +123,15 @@ public class SegmentedControlAssistant<T: SegmentedItemRepresentative> {
 			
 			return nil
 		}
+		set {
+			selectedUniqueIdentifier = newValue?.uniqueIdentifier
+		}
 	}
 	
 	/**
 		The unique identifier for the selected segment, or nil if no segment is selected.
 	*/
-	var selectedUniqueIdentifier: ItemUniqueIdentifier? {
+	public var selectedUniqueIdentifier: ItemUniqueIdentifier? {
 		get {
 			return selectedItemRepresentative?.uniqueIdentifier
 		}

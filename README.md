@@ -1,5 +1,5 @@
 # BurntCocoaUI
-Declarative assistants to make NSMenu, NSPopUpButton, NSSegmentedControl easier
+Declarative assistants to make NSMenu, NSPopUpButton, NSSegmentedControl easier. Use Swift enums instead of creating and removing `NSMenuItem`s and fiddling with indexes and tags.
 
 ## Example
 
@@ -15,10 +15,10 @@ enum BaseContentTypeChoice: Int {
 }
 ```
 
-#### Add an extension to the enum to make it conform to the MenuItemRepresentative protocol.
+#### Add an extension to the enum to make it conform to the UIChoiceRepresentative protocol.
 
 ```swift
-extension BaseContentTypeChoice: MenuItemRepresentative {
+extension BaseContentTypeChoice: UIChoiceRepresentative {
 	var title: String {
 		switch self {
 		case .LocalHTMLPages:

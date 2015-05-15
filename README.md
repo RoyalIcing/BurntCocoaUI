@@ -1,5 +1,5 @@
 # BurntCocoaUI
-Declarative assistants to make NSMenu, NSPopUpButton, NSSegmentedControl easier. Use Swift enums instead of creating and removing `NSMenuItem`s and fiddling with indexes and tags.
+Declarative assistants to make NSMenu, NSPopUpButton, NSSegmentedControl easier. Use Swift enums instead of creating and removing NSMenuItems and fiddling with indexes and tags.
 
 ## Example
 

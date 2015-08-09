@@ -88,5 +88,13 @@ class ExampleViewController: NSViewController {
 }
 ```
 
+## Installation
+
+To integrate into your Xcode project using Carthage, specify it in your Cartfile:
+
+```
+github "BurntCaramel/BurntCocoaUI" >= 0.2
+```
+
 ## Origin
 My Mac app Lantern: http://www.burntcaramel.com/lantern/

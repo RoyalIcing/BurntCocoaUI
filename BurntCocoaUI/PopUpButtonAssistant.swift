@@ -56,9 +56,11 @@ public class PopUpButtonAssistant<T: UIChoiceRepresentative> {
 	*/
 	public var selectedItemRepresentative: Item? {
 		get {
-			let index = popUpButton.indexOfSelectedItem
-			if index != -1 {
-				return menuAssistant.itemRepresentativeForMenuItemAtIndex(index)
+			if menuItemRepresentatives != nil {
+				let index = popUpButton.indexOfSelectedItem
+				if index != -1 {
+					return menuAssistant.itemRepresentativeForMenuItemAtIndex(index)
+				}
 			}
 			
 			return nil

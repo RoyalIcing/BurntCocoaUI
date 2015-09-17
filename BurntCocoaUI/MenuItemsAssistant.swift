@@ -63,9 +63,9 @@ public class MenuItemsAssistant<T: UIChoiceRepresentative> {
 	/**
 	Creates menu items based on the array of `menuItemRepresentatives`
 	
-	:param: cache Pass this multiple times to createItems() to reuse menu items.
+	- parameter cache: Pass this multiple times to createItems() to reuse menu items.
 	*/
-	public func createItems(#cache: MenuItemsAssistantCache<Item>?) -> [NSMenuItem] {
+	public func createItems(cache cache: MenuItemsAssistantCache<Item>?) -> [NSMenuItem] {
 		if menuItemRepresentatives == nil {
 			fatalError("Must set .menuItemRepresentatives before calling createItems()")
 		}
@@ -133,13 +133,13 @@ public class MenuItemsAssistant<T: UIChoiceRepresentative> {
 	/**
 	Find the item representative for the passed NSMenuItem.
 	
-	:param: menuItem The menu item to find.
-	:param: menuItem The menu items to search within.
+	- parameter menuItem: The menu item to find.
+	- parameter menuItem: The menu items to search within.
 	
-	:returns: The item representative that matched the menu item.
+	- returns: The item representative that matched the menu item.
 	*/
 	public func itemRepresentativeForMenuItem(menuItemToFind: NSMenuItem, inMenuItems menuItems: [NSMenuItem]) -> T? {
-		for (index, menuItem) in enumerate(menuItems) {
+		for (index, menuItem) in menuItems.enumerate() {
 			if menuItem === menuItemToFind {
 				return menuItemRepresentatives[index]
 			}

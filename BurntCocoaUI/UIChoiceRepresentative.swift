@@ -18,3 +18,9 @@ public protocol UIChoiceRepresentative {
 	typealias UniqueIdentifier: Hashable
 	var uniqueIdentifier: UniqueIdentifier { get }
 }
+
+extension UIChoiceRepresentative where UniqueIdentifier == Self {
+	var uniqueIdentifier: UniqueIdentifier {
+		return self
+	}
+}

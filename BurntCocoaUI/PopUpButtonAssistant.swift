@@ -76,7 +76,7 @@ public class PopUpButtonAssistant<T: UIChoiceRepresentative> {
 		}
 		set(newIdentifier) {
 			if let newIdentifier = newIdentifier {
-				for (index, itemRepresentative) in enumerate(menuItemRepresentatives) {
+				for (index, itemRepresentative) in menuItemRepresentatives.enumerate() {
 					if itemRepresentative?.uniqueIdentifier == newIdentifier {
 						popUpButton.selectItemAtIndex(index)
 						return

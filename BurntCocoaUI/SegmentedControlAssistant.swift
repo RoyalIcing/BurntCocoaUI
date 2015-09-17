@@ -29,7 +29,7 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 	
 	public let segmentedControl: NSSegmentedControl!
 	public var segmentedCell: NSSegmentedCell {
-		return segmentedControl.cell() as! NSSegmentedCell
+		return segmentedControl.cell as! NSSegmentedCell
 	}
 	
 	public init(segmentedControl: NSSegmentedControl) {
@@ -92,9 +92,9 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 	/**
 		Find the item representative for the passed segmented item index.
 		
-		:param: segmentIndex The index of the segmented item to find.
+		- parameter segmentIndex: The index of the segmented item to find.
 		
-		:returns: The item representative that matched.
+		- returns: The item representative that matched.
 	*/
 	public func itemRepresentativeForSegmentAtIndex(segmentIndex: Int) -> Item {
 		return segmentedItemRepresentatives[segmentIndex]
@@ -103,9 +103,9 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 	/**
 		Find the unique identifier for the passed segmented item index.
 		
-		:param: segmentIndex The index of the segmented item to find.
+		- parameter segmentIndex: The index of the segmented item to find.
 		
-		:returns: The item representative that matched.
+		- returns: The item representative that matched.
 	*/
 	public func uniqueIdentifierForSegmentAtIndex(segmentIndex: Int) -> ItemUniqueIdentifier {
 		return itemRepresentativeForSegmentAtIndex(segmentIndex).uniqueIdentifier
@@ -137,7 +137,7 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 		}
 		set(newIdentifier) {
 			if let newIdentifier = newIdentifier {
-				for (index, itemRepresentative) in enumerate(segmentedItemRepresentatives) {
+				for (index, itemRepresentative) in segmentedItemRepresentatives.enumerate() {
 					if itemRepresentative.uniqueIdentifier == newIdentifier {
 						segmentedControl.selectedSegment = index
 						return

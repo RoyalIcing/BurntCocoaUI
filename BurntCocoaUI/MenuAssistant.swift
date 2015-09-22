@@ -21,7 +21,7 @@ public class MenuAssistant<T: UIChoiceRepresentative> {
 	/**
 		Create a new menu assistant.
 		
-		:param: menu Pass the NSMenu you would like to automatically populate.
+		- parameter menu: Pass the NSMenu you would like to automatically populate.
 	*/
 	public init(menu: NSMenu) {
 		self.menu = menu
@@ -75,9 +75,9 @@ public class MenuAssistant<T: UIChoiceRepresentative> {
 	/**
 		Find the item representative for the passed NSMenuItem index.
 		
-		:param: menuItemIndex The index of the menu item to find inside the receiver’s menu.
+		- parameter menuItemIndex: The index of the menu item to find inside the receiver’s menu.
 		
-		:returns: The item representative that matched the menu item index.
+		- returns: The item representative that matched the menu item index.
 	*/
 	public func itemRepresentativeForMenuItemAtIndex(menuItemIndex: Int) -> Item? {
 		return menuItemRepresentatives[menuItemIndex]
@@ -86,9 +86,9 @@ public class MenuAssistant<T: UIChoiceRepresentative> {
 	/**
 		Find the unique identifier for the passed NSMenuItem index.
 		
-		:param: menuItemIndex The index of the menu item to find inside the receiver’s menu.
+		- parameter menuItemIndex: The index of the menu item to find inside the receiver’s menu.
 		
-		:returns: The unique identifier that matched the menu item index.
+		- returns: The unique identifier that matched the menu item index.
 	*/
 	public func uniqueIdentifierForMenuItemAtIndex(menuItemIndex: Int) -> ItemUniqueIdentifier? {
 		return itemRepresentativeForMenuItemAtIndex(menuItemIndex)?.uniqueIdentifier
@@ -97,9 +97,9 @@ public class MenuAssistant<T: UIChoiceRepresentative> {
 	/**
 		Find the item representative for the passed NSMenuItem.
 		
-		:param: menuItem The menu item to find inside the receiver’s menu.
+		- parameter menuItem: The menu item to find inside the receiver’s menu.
 		
-		:returns: The item representative that matched the menu item.
+		- returns: The item representative that matched the menu item.
 	*/
 	public func itemRepresentativeForMenuItem(menuItemToFind: NSMenuItem) -> Item? {
 		let index = menu.indexOfItem(menuItemToFind)

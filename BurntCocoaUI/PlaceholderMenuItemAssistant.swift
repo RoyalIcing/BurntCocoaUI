@@ -79,7 +79,7 @@ public class PlaceholderMenuItemAssistant<T: UIChoiceRepresentative> {
 	
 	public func itemRepresentativeForMenuItem(menuItemToFind: NSMenuItem) -> Item? {
 		if let menuItems = menuItems {
-			for (index, menuItem) in enumerate(menuItems) {
+			for (index, menuItem) in menuItems.enumerate() {
 				if menuItem === menuItemToFind {
 					return menuItemRepresentatives[index]
 				}

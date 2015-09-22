@@ -62,8 +62,8 @@ class MenuTests: XCTestCase {
 	}
 	
 	func testCreateMenu() {
-		var menu = NSMenu()
-		var menuAssistant = MenuAssistant<FruitChoice>(menu: menu)
+		let menu = NSMenu()
+		let menuAssistant = MenuAssistant<FruitChoice>(menu: menu)
 		
 		// Convert into array of optional types for menuAssistant
 		let fruitChoiceRepresentatives:[FruitChoice?] = self.fruitChoiceRepresentatives.map { $0 }
@@ -92,8 +92,8 @@ class MenuTests: XCTestCase {
 	}
 	
 	func testCreateSegmentedControl() {
-		var segmentedControl = NSSegmentedControl()
-		var segmentedControlAssistant = SegmentedControlAssistant<FruitChoice>(segmentedControl: segmentedControl)
+		let segmentedControl = NSSegmentedControl()
+		let segmentedControlAssistant = SegmentedControlAssistant<FruitChoice>(segmentedControl: segmentedControl)
 		
 		let fruitChoiceRepresentatives = self.fruitChoiceRepresentatives
 		

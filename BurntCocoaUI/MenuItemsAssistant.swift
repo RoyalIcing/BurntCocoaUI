@@ -34,7 +34,12 @@ public struct MenuItemCustomization<T: UIChoiceRepresentative> {
 		Customize whether the menu item is enabled, called for each menu item representative.
 	*/
 	public var enabled: ((menuItemRepresentative: T) -> Bool)?
+	/**
+	Customize the submenu, called for each menu item representative.
+	*/
+	public var additionalSetUp: ((menuItemRepresentative: T, menuItem: NSMenuItem) -> ())?
 }
+
 
 public class MenuItemsAssistantCache<T: UIChoiceRepresentative> {
 	typealias ItemUniqueIdentifier = T.UniqueIdentifier
@@ -42,6 +47,7 @@ public class MenuItemsAssistantCache<T: UIChoiceRepresentative> {
 	/// Menu items are cached so they are not thrown away and recreated every time.
 	var uniqueIdentifierToMenuItems = [ItemUniqueIdentifier: NSMenuItem]()
 }
+
 
 /**
 MenuItemsAssistant
@@ -111,6 +117,8 @@ public class MenuItemsAssistant<T: UIChoiceRepresentative> {
 				item.tag = tag
 				item.state = state
 				item.enabled = enabled
+				
+				customization.additionalSetUp?(menuItemRepresentative: menuItemRepresentative, menuItem: item)
 				
 				return item
 			}

@@ -93,7 +93,7 @@ class ExampleViewController: NSViewController {
 To integrate into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "BurntCaramel/BurntCocoaUI" >= 0.2
+github "BurntCaramel/BurntCocoaUI" >= 0.3
 ```
 
 ## Origin

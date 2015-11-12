@@ -90,13 +90,7 @@ public class MenuItemsAssistant<T: UIChoiceRepresentative> {
 				let tag: Int = customization.tag?(menuItemRepresentative: menuItemRepresentative) ?? 0
 				let state: Int = customization.state?(menuItemRepresentative: menuItemRepresentative) ?? NSOffState
 				let enabled: Bool = customization.enabled?(menuItemRepresentative: menuItemRepresentative) ?? true
-				
-				var action: Selector = nil
-				var target: AnyObject?
-				if let actionAndTarget = customization.actionAndTarget?(menuItemRepresentative: menuItemRepresentative) {
-					action = actionAndTarget.action
-					target = actionAndTarget.target
-				}
+				let (action, target) = customization.actionAndTarget?(menuItemRepresentative: menuItemRepresentative) ?? (nil, nil)
 				
 				let uniqueIdentifier = menuItemRepresentative.uniqueIdentifier
 				previousCachedIdentifiers.remove(uniqueIdentifier)

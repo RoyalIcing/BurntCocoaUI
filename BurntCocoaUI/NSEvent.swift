@@ -1,5 +1,5 @@
 //
-//  NSEventAdditions.swift
+//  NSEvent.swift
 //  BurntCocoaUI
 //
 //  Created by Patrick Smith on 6/09/2015.

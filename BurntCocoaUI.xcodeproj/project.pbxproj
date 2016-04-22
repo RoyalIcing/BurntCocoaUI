@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2469A7B1CCA20AE00D0CC6C /* NSResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2469A7A1CCA20AE00D0CC6C /* NSResponder.swift */; };
 		B28EC6571B04401900857622 /* MenuItemsAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6561B04401900857622 /* MenuItemsAssistant.swift */; };
 		B28EC6591B0448D000857622 /* PlaceholderMenuItemAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6581B0448D000857622 /* PlaceholderMenuItemAssistant.swift */; };
 		B28EC6621B05982F00857622 /* UIChoiceRepresentative.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6611B05982F00857622 /* UIChoiceRepresentative.swift */; };
 		B28EC6651B0598F400857622 /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6641B0598F400857622 /* MainTests.swift */; };
-		B29C43531B9C40430084F6AA /* NSEventAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C43521B9C40430084F6AA /* NSEventAdditions.swift */; };
+		B29C43531B9C40430084F6AA /* NSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C43521B9C40430084F6AA /* NSEvent.swift */; };
 		B2D39B281AF670CE003D6738 /* BurntCocoaUI.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D39B271AF670CE003D6738 /* BurntCocoaUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2D39B2E1AF670CE003D6738 /* BurntCocoaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D39B221AF670CE003D6738 /* BurntCocoaUI.framework */; };
 		B2D39B411AF670FE003D6738 /* MenuAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D39B3E1AF670FE003D6738 /* MenuAssistant.swift */; };
@@ -30,13 +31,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2469A7A1CCA20AE00D0CC6C /* NSResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSResponder.swift; sourceTree = "<group>"; };
 		B28EC6561B04401900857622 /* MenuItemsAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsAssistant.swift; sourceTree = "<group>"; };
 		B28EC6581B0448D000857622 /* PlaceholderMenuItemAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderMenuItemAssistant.swift; sourceTree = "<group>"; };
 		B28EC6611B05982F00857622 /* UIChoiceRepresentative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIChoiceRepresentative.swift; sourceTree = "<group>"; };
 		B28EC6631B0598F400857622 /* BurntCocoaUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BurntCocoaUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B28EC6641B0598F400857622 /* MainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
 		B28EC6661B05A30000857622 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B29C43521B9C40430084F6AA /* NSEventAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEventAdditions.swift; sourceTree = "<group>"; };
+		B29C43521B9C40430084F6AA /* NSEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEvent.swift; sourceTree = "<group>"; };
 		B2D39B221AF670CE003D6738 /* BurntCocoaUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BurntCocoaUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D39B261AF670CE003D6738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2D39B271AF670CE003D6738 /* BurntCocoaUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BurntCocoaUI.h; sourceTree = "<group>"; };
@@ -69,7 +71,8 @@
 		B29C43541B9C40620084F6AA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B29C43521B9C40430084F6AA /* NSEventAdditions.swift */,
+				B29C43521B9C40430084F6AA /* NSEvent.swift */,
+				B2469A7A1CCA20AE00D0CC6C /* NSResponder.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -247,9 +250,10 @@
 				B28EC6571B04401900857622 /* MenuItemsAssistant.swift in Sources */,
 				B28EC6591B0448D000857622 /* PlaceholderMenuItemAssistant.swift in Sources */,
 				B2D39B411AF670FE003D6738 /* MenuAssistant.swift in Sources */,
+				B2469A7B1CCA20AE00D0CC6C /* NSResponder.swift in Sources */,
 				B28EC6621B05982F00857622 /* UIChoiceRepresentative.swift in Sources */,
 				B2D39B421AF670FE003D6738 /* PopUpButtonAssistant.swift in Sources */,
-				B29C43531B9C40430084F6AA /* NSEventAdditions.swift in Sources */,
+				B29C43531B9C40430084F6AA /* NSEvent.swift in Sources */,
 				B2D39B431AF670FE003D6738 /* SegmentedControlAssistant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

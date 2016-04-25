@@ -83,7 +83,7 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 			segmentedCell.setLabel(title, forSegment: segmentIndex)
 			segmentedCell.setTag(tag, forSegment: segmentIndex)
 			
-			segmentIndex++
+			segmentIndex += 1
 		}
 		
 		if trackingMode == .SelectOne {
@@ -122,11 +122,11 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 	public var selectedItemRepresentative: Item? {
 		get {
 			let index = segmentedCell.selectedSegment
-			if index != -1 {
-				return itemRepresentativeForSegmentAtIndex(index)
+			guard index != -1 else {
+				return nil
 			}
 			
-			return nil
+			return itemRepresentativeForSegmentAtIndex(index)
 		}
 		set {
 			selectedUniqueIdentifier = newValue?.uniqueIdentifier
@@ -141,16 +141,23 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 			return selectedItemRepresentative?.uniqueIdentifier
 		}
 		set(newIdentifier) {
-			if let newIdentifier = newIdentifier {
-				for (index, itemRepresentative) in segmentedItemRepresentatives.enumerate() {
-					if itemRepresentative.uniqueIdentifier == newIdentifier {
-						segmentedControl.selectedSegment = index
-						return
-					}
+			guard let newIdentifier = newIdentifier else {
+				segmentedControl.selectedSegment = -1
+				return
+			}
+			
+			for (index, itemRepresentative) in segmentedItemRepresentatives.enumerate() {
+				if itemRepresentative.uniqueIdentifier == newIdentifier {
+					segmentedControl.selectedSegment = index
+					return
 				}
 			}
 			
 			segmentedControl.selectedSegment = -1
 		}
 	}
+}
+
+extension SegmentedControlAssistant : UIControlAssistant {
+	var control: NSSegmentedControl { return segmentedControl }
 }

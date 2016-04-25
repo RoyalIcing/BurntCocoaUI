@@ -71,7 +71,7 @@ public class PlaceholderMenuItemAssistant<T: UIChoiceRepresentative> {
 		var insertIndex = placeholderIndex + 1
 		for menuItem in newMenuItems {
 			menu.insertItem(menuItem, atIndex: insertIndex)
-			insertIndex++
+			insertIndex += 1
 		}
 		
 		menuItems = newMenuItems

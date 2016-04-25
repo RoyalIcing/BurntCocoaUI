@@ -15,9 +15,10 @@ What each UI item (menu item, segmented item) is represented with. Recommended t
 public protocol UIChoiceRepresentative {
 	var title: String { get }
 	
-	typealias UniqueIdentifier: Hashable
+	associatedtype UniqueIdentifier : Hashable
 	var uniqueIdentifier: UniqueIdentifier { get }
 }
+
 
 extension UIChoiceRepresentative where UniqueIdentifier == Self {
 	var uniqueIdentifier: UniqueIdentifier {

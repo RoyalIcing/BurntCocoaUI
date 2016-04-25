@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B2469A7B1CCA20AE00D0CC6C /* NSResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2469A7A1CCA20AE00D0CC6C /* NSResponder.swift */; };
+		B2469A861CCD992900D0CC6C /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2469A851CCD992900D0CC6C /* Field.swift */; };
 		B2469A881CCDA10900D0CC6C /* UIControlAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2469A871CCDA10900D0CC6C /* UIControlAssistant.swift */; };
 		B28EC6571B04401900857622 /* MenuItemsAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6561B04401900857622 /* MenuItemsAssistant.swift */; };
 		B28EC6591B0448D000857622 /* PlaceholderMenuItemAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6581B0448D000857622 /* PlaceholderMenuItemAssistant.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		B2469A7A1CCA20AE00D0CC6C /* NSResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSResponder.swift; sourceTree = "<group>"; };
+		B2469A851CCD992900D0CC6C /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		B2469A871CCDA10900D0CC6C /* UIControlAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlAssistant.swift; sourceTree = "<group>"; };
 		B28EC6561B04401900857622 /* MenuItemsAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemsAssistant.swift; sourceTree = "<group>"; };
 		B28EC6581B0448D000857622 /* PlaceholderMenuItemAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderMenuItemAssistant.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				B28EC6581B0448D000857622 /* PlaceholderMenuItemAssistant.swift */,
 				B2D39B3F1AF670FE003D6738 /* PopUpButtonAssistant.swift */,
 				B2D39B401AF670FE003D6738 /* SegmentedControlAssistant.swift */,
+				B2469A851CCD992900D0CC6C /* Field.swift */,
 				B29C43541B9C40620084F6AA /* Extensions */,
 				B2D39B251AF670CE003D6738 /* Supporting Files */,
 			);
@@ -255,6 +258,7 @@
 				B2D39B411AF670FE003D6738 /* MenuAssistant.swift in Sources */,
 				B2469A7B1CCA20AE00D0CC6C /* NSResponder.swift in Sources */,
 				B28EC6621B05982F00857622 /* UIChoiceRepresentative.swift in Sources */,
+				B2469A861CCD992900D0CC6C /* Field.swift in Sources */,
 				B2469A881CCDA10900D0CC6C /* UIControlAssistant.swift in Sources */,
 				B2D39B421AF670FE003D6738 /* PopUpButtonAssistant.swift in Sources */,
 				B29C43531B9C40430084F6AA /* NSEvent.swift in Sources */,

@@ -21,6 +21,11 @@ public class PopUpButtonAssistant<T: UIChoiceRepresentative> {
 		menuAssistant = MenuAssistant<Item>(menu: popUpButton.menu!)
 	}
 	
+	public convenience init() {
+		let popUpButton = NSPopUpButton()
+		self.init(popUpButton: popUpButton)
+	}
+	
 	/**
 		Pass an array of item representatives for each menu item. Use nil for separators.
 	*/

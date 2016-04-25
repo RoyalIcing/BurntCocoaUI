@@ -36,6 +36,11 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 		self.segmentedControl = segmentedControl
 	}
 	
+	public convenience init() {
+		let segmentedControl = NSSegmentedControl()
+		self.init(segmentedControl: segmentedControl)
+	}
+	
 	/**
 		Pass an array of item representatives for each segmented item.
 	*/

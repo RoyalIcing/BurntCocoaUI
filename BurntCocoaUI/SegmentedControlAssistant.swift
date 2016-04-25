@@ -27,7 +27,7 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 	public typealias Item = T
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	
-	public let segmentedControl: NSSegmentedControl!
+	public let segmentedControl: NSSegmentedControl
 	public var segmentedCell: NSSegmentedCell {
 		return segmentedControl.cell as! NSSegmentedCell
 	}

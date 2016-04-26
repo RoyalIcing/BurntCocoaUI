@@ -25,3 +25,8 @@ extension UIChoiceRepresentative where UniqueIdentifier == Self {
 		return self
 	}
 }
+
+
+public protocol UIChoiceEnumerable {
+	static var allChoices: [Self] { get }
+}

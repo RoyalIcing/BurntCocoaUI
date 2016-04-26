@@ -9,7 +9,7 @@
 import Cocoa
 
 
-public class PopUpButtonAssistant<T: UIChoiceRepresentative> {
+public class PopUpButtonAssistant<T : UIChoiceRepresentative> {
 	public typealias Item = T
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	
@@ -19,11 +19,22 @@ public class PopUpButtonAssistant<T: UIChoiceRepresentative> {
 	public init(popUpButton: NSPopUpButton) {
 		self.popUpButton = popUpButton
 		menuAssistant = MenuAssistant<Item>(menu: popUpButton.menu!)
+		
+		if let defaultMenuItemRepresentatives = self.defaultMenuItemRepresentatives {
+			menuItemRepresentatives = defaultMenuItemRepresentatives
+		}
 	}
 	
 	public convenience init() {
 		let popUpButton = NSPopUpButton()
 		self.init(popUpButton: popUpButton)
+	}
+	
+	/**
+		The default item representatives to populate with.
+	*/
+	public var defaultMenuItemRepresentatives: [Item?]? {
+		return nil
 	}
 	
 	/**
@@ -98,4 +109,11 @@ public class PopUpButtonAssistant<T: UIChoiceRepresentative> {
 
 extension PopUpButtonAssistant : UIControlAssistant {
 	var control: NSPopUpButton { return popUpButton }
+}
+
+
+extension PopUpButtonAssistant where T : UIChoiceEnumerable {
+	public var defaultMenuItemRepresentatives: [Item?]? {
+		return Item.allChoices.map{ $0 }
+	}
 }

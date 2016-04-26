@@ -34,11 +34,22 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 	
 	public init(segmentedControl: NSSegmentedControl) {
 		self.segmentedControl = segmentedControl
+		
+		if let defaultSegmentedItemRepresentatives = self.defaultSegmentedItemRepresentatives {
+			segmentedItemRepresentatives = defaultSegmentedItemRepresentatives
+		}
 	}
 	
 	public convenience init() {
 		let segmentedControl = NSSegmentedControl()
 		self.init(segmentedControl: segmentedControl)
+	}
+	
+	/**
+	The default item representatives to populate with.
+	*/
+	public var defaultSegmentedItemRepresentatives: [Item]? {
+		return nil
 	}
 	
 	/**
@@ -160,4 +171,11 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 
 extension SegmentedControlAssistant : UIControlAssistant {
 	var control: NSSegmentedControl { return segmentedControl }
+}
+
+
+extension SegmentedControlAssistant where T : UIChoiceEnumerable {
+	public var defaultSegmentedItemRepresentatives: [Item]? {
+		return Item.allChoices.map{ $0 }
+	}
 }

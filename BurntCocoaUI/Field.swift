@@ -51,9 +51,9 @@ extension FieldsProducer {
 		if let label = label {
 			cellView.addSubview(label)
 			NSLayoutConstraint.activateConstraints([
-				NSLayoutConstraint(item: control, attribute: .Leading, relatedBy: .Equal, toItem: cellView, attribute: .CenterX, multiplier: 1.0, constant: 4.0),
-				NSLayoutConstraint(item: control, attribute: .Trailing, relatedBy: .Equal, toItem: cellView, attribute: .Trailing, multiplier: 1.0, constant: 8.0),
-				NSLayoutConstraint(item: control, attribute: .Baseline, relatedBy: .Equal, toItem: control, attribute: .Baseline, multiplier: 1.0, constant: 0.0)
+				NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: cellView, attribute: .CenterX, multiplier: 1.0, constant: 4.0),
+				NSLayoutConstraint(item: label, attribute: .Trailing, relatedBy: .Equal, toItem: cellView, attribute: .Trailing, multiplier: 1.0, constant: 8.0),
+				NSLayoutConstraint(item: label, attribute: .Baseline, relatedBy: .Equal, toItem: control, attribute: .Baseline, multiplier: 1.0, constant: 0.0)
 			])
 		}
 		

@@ -15,6 +15,8 @@ public func textFieldRenderer
 	-> (String?) -> TextField
 {
 	let textField = TextField()
+	textField.cell?.sendsActionOnEndEditing = true
+	
 	let target = textField.setActionHandler { _ in
 		onChange(textField.stringValue)
 	}

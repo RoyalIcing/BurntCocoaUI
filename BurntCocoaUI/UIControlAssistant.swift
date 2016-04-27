@@ -10,7 +10,10 @@ import Cocoa
 
 
 protocol UIControlAssistant {
+	associatedtype Value : Hashable
 	associatedtype Control : NSView
 	
 	var control: Control { get }
+	
+	var controlRenderer: (Value?) -> Control { get }
 }

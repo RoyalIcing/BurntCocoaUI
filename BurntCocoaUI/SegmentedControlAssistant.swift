@@ -25,6 +25,7 @@ public struct SegmentedItemCustomization<T: UIChoiceRepresentative> {
 
 public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 	public typealias Item = T
+	public typealias Value = Item.UniqueIdentifier
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	
 	public let segmentedControl: NSSegmentedControl
@@ -170,7 +171,16 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 }
 
 extension SegmentedControlAssistant : UIControlAssistant {
-	var control: NSSegmentedControl { return segmentedControl }
+	typealias Control = NSSegmentedControl
+	
+	var control: Control { return segmentedControl }
+	
+	var controlRenderer: (Value?) -> Control {
+		return { newValue in
+			self.selectedUniqueIdentifier = newValue
+			return self.control
+		}
+	}
 }
 
 

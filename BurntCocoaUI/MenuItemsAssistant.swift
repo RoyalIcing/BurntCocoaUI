@@ -9,7 +9,7 @@
 import Cocoa
 
 
-public struct MenuItemCustomization<T: UIChoiceRepresentative> {
+public struct MenuItemCustomization<T : UIChoiceRepresentative> {
 	/**
 		Customize the title dynamically, called for each menu item representative.
 	*/
@@ -45,7 +45,7 @@ public struct MenuItemCustomization<T: UIChoiceRepresentative> {
 }
 
 
-public class MenuItemsAssistantCache<T: UIChoiceRepresentative> {
+public class MenuItemsAssistantCache<T : UIChoiceRepresentative> {
 	typealias ItemUniqueIdentifier = T.UniqueIdentifier
 	
 	/// Menu items are cached so they are not thrown away and recreated every time.
@@ -56,7 +56,7 @@ public class MenuItemsAssistantCache<T: UIChoiceRepresentative> {
 /**
 MenuItemsAssistant
 */
-public class MenuItemsAssistant<T: UIChoiceRepresentative> {
+public class MenuItemsAssistant<T : UIChoiceRepresentative> {
 	public typealias Item = T
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	

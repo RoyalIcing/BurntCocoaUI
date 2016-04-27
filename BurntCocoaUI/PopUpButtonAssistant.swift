@@ -11,6 +11,7 @@ import Cocoa
 
 public class PopUpButtonAssistant<T : UIChoiceRepresentative> {
 	public typealias Item = T
+	public typealias Value = Item.UniqueIdentifier
 	public typealias ItemUniqueIdentifier = Item.UniqueIdentifier
 	
 	public let popUpButton: NSPopUpButton
@@ -108,7 +109,16 @@ public class PopUpButtonAssistant<T : UIChoiceRepresentative> {
 }
 
 extension PopUpButtonAssistant : UIControlAssistant {
-	var control: NSPopUpButton { return popUpButton }
+	typealias Control = NSPopUpButton
+	
+	var control: Control { return popUpButton }
+	
+	var controlRenderer: (Value?) -> Control {
+		return { newValue in
+			self.selectedUniqueIdentifier = newValue
+			return self.control
+		}
+	}
 }
 
 

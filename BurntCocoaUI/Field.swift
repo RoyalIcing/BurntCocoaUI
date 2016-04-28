@@ -52,6 +52,9 @@ extension FieldsProducer {
 		let control = self.control(forField: field)
 		let label = self.label(forField: field)
 		
+		control.removeFromSuperview()
+		label?.removeFromSuperview()
+		
 		let cellView = NSView(frame: NSRect(origin: .zero, size: NSSize(width: 100.0, height: 36.0)))
 		cellView.translatesAutoresizingMaskIntoConstraints = false
 		
@@ -62,7 +65,7 @@ extension FieldsProducer {
 			NSLayoutConstraint(item: control, attribute: .Leading, relatedBy: .Equal, toItem: cellView, attribute: .CenterX, multiplier: 1.0, constant: 4.0),
 			NSLayoutConstraint(item: control, attribute: .Trailing, relatedBy: .Equal, toItem: cellView, attribute: .Trailing, multiplier: 1.0, constant: 0.0),
 			NSLayoutConstraint(item: control, attribute: .CenterY, relatedBy: .Equal, toItem: cellView, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
-			])
+		])
 		
 		cellView.nextKeyView = control
 		
@@ -72,7 +75,7 @@ extension FieldsProducer {
 				NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: cellView, attribute: .Leading, multiplier: 1.0, constant: 0.0),
 				NSLayoutConstraint(item: label, attribute: .Trailing, relatedBy: .Equal, toItem: cellView, attribute: .CenterX, multiplier: 1.0, constant: -4.0),
 				NSLayoutConstraint(item: label, attribute: .Baseline, relatedBy: .Equal, toItem: control, attribute: .Baseline, multiplier: 1.0, constant: 0.0)
-				])
+			])
 		}
 		
 		return cellView

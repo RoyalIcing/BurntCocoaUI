@@ -56,7 +56,7 @@ public class MenuAssistant<T: UIChoiceRepresentative> {
 	/**
 		Menu items are cached so they are not thrown away and recreated every time.
 	*/
-	private var itemsCache = MenuItemsAssistantCache<Item>()
+	fileprivate var itemsCache = MenuItemsAssistantCache<Item>()
 	
 	/**
 		Populates the menu with menu items created for each member of `menuItemRepresentatives`
@@ -79,7 +79,7 @@ public class MenuAssistant<T: UIChoiceRepresentative> {
 		
 		- returns: The item representative that matched the menu item index.
 	*/
-	public func itemRepresentativeForMenuItemAtIndex(menuItemIndex: Int) -> Item? {
+	public func itemRepresentative(at menuItemIndex: Int) -> Item? {
 		return menuItemRepresentatives[menuItemIndex]
 	}
 	
@@ -90,8 +90,8 @@ public class MenuAssistant<T: UIChoiceRepresentative> {
 		
 		- returns: The unique identifier that matched the menu item index.
 	*/
-	public func uniqueIdentifierForMenuItemAtIndex(menuItemIndex: Int) -> ItemUniqueIdentifier? {
-		return itemRepresentativeForMenuItemAtIndex(menuItemIndex)?.uniqueIdentifier
+	public func uniqueIdentifier(at menuItemIndex: Int) -> ItemUniqueIdentifier? {
+    return itemRepresentative(at: menuItemIndex)?.uniqueIdentifier
 	}
 	
 	/**
@@ -101,8 +101,8 @@ public class MenuAssistant<T: UIChoiceRepresentative> {
 		
 		- returns: The item representative that matched the menu item.
 	*/
-	public func itemRepresentativeForMenuItem(menuItemToFind: NSMenuItem) -> Item? {
-		let index = menu.indexOfItem(menuItemToFind)
+	public func itemRepresentative(for menuItemToFind: NSMenuItem) -> Item? {
+		let index = menu.index(of: menuItemToFind)
 		if index != -1 {
 			if let itemRepresentative = menuItemRepresentatives[index] {
 				return itemRepresentative

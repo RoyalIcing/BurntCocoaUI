@@ -11,7 +11,7 @@ import Cocoa
 
 public func textFieldRenderer
 	<TextField : NSTextField>
-	(onChange onChange: (String) -> ())
+	(onChange: @escaping (String) -> ())
 	-> (String?) -> TextField
 {
 	let textField = TextField()
@@ -31,12 +31,12 @@ public func textFieldRenderer
 
 public func checkboxRenderer
 	<Button : NSButton>
-	(onChange onChange: (NSCellStateValue) -> (), title: String)
+	(onChange: @escaping (NSCellStateValue) -> (), title: String)
 	-> (NSCellStateValue) -> Button
 {
 	let button = Button()
 	button.title = title
-	button.setButtonType(.SwitchButton)
+	button.setButtonType(.switch)
 	
 	let target = button.setActionHandler { _ in
 		onChange(button.state)
@@ -52,11 +52,11 @@ public func checkboxRenderer
 
 public func popUpButtonRenderer<
 	PopUpButton : NSPopUpButton,
-	Value : UIChoiceRepresentative
-	where
-	Value : UIChoiceEnumerable>
-	(onChange onChange: (Value?) -> ())
+	Value : UIChoiceRepresentative>
+	(onChange: @escaping (Value?) -> ())
 	-> (Value?) -> PopUpButton
+	where
+	Value : UIChoiceEnumerable
 {
 	let popUpButton = PopUpButton()
 	let assistant = PopUpButtonAssistant<Value>(popUpButton: popUpButton)

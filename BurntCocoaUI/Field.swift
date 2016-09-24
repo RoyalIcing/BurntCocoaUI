@@ -27,7 +27,7 @@ public protocol FieldsProducer {
 	
 	mutating func label(forField field: Field) -> NSTextField?
 	mutating func cellView(forField field: Field) -> NSView
-	mutating func updateStackView(stackView: NSStackView, forFields fields: [Field?], gapSpacing: CGFloat, gravity: NSStackViewGravity)
+	mutating func update(stackView: NSStackView, forFields fields: [Field?], gapSpacing: CGFloat, gravity: NSStackViewGravity)
 }
 
 extension FieldsProducer {
@@ -39,10 +39,10 @@ extension FieldsProducer {
 		return field.label.map{ text in
 			let label = NSTextField()
 			label.stringValue = text
-			label.selectable = false
-			label.bordered = false
+			label.isSelectable = false
+			label.isBordered = false
 			label.backgroundColor = nil
-			label.alignment = .Right
+			label.alignment = .right
 			label.translatesAutoresizingMaskIntoConstraints = false
 			return label
 		}
@@ -60,39 +60,39 @@ extension FieldsProducer {
 		
 		control.translatesAutoresizingMaskIntoConstraints = false
 		cellView.addSubview(control)
-		NSLayoutConstraint.activateConstraints([
-			NSLayoutConstraint(item: control, attribute: .Height, relatedBy: .Equal, toItem: cellView, attribute: .Height, multiplier: 1.0, constant: 0.0),
-			NSLayoutConstraint(item: control, attribute: .Leading, relatedBy: .Equal, toItem: cellView, attribute: .CenterX, multiplier: 1.0, constant: 4.0),
-			NSLayoutConstraint(item: control, attribute: .Trailing, relatedBy: .Equal, toItem: cellView, attribute: .Trailing, multiplier: 1.0, constant: 0.0),
-			NSLayoutConstraint(item: control, attribute: .CenterY, relatedBy: .Equal, toItem: cellView, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
+		NSLayoutConstraint.activate([
+			NSLayoutConstraint(item: control, attribute: .height, relatedBy: .equal, toItem: cellView, attribute: .height, multiplier: 1.0, constant: 0.0),
+			NSLayoutConstraint(item: control, attribute: .leading, relatedBy: .equal, toItem: cellView, attribute: .centerX, multiplier: 1.0, constant: 4.0),
+			NSLayoutConstraint(item: control, attribute: .trailing, relatedBy: .equal, toItem: cellView, attribute: .trailing, multiplier: 1.0, constant: 0.0),
+			NSLayoutConstraint(item: control, attribute: .centerY, relatedBy: .equal, toItem: cellView, attribute: .centerY, multiplier: 1.0, constant: 0.0)
 		])
 		
 		cellView.nextKeyView = control
 		
 		if let label = label {
 			cellView.addSubview(label)
-			NSLayoutConstraint.activateConstraints([
-				NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: cellView, attribute: .Leading, multiplier: 1.0, constant: 0.0),
-				NSLayoutConstraint(item: label, attribute: .Trailing, relatedBy: .Equal, toItem: cellView, attribute: .CenterX, multiplier: 1.0, constant: -4.0),
-				NSLayoutConstraint(item: label, attribute: .Baseline, relatedBy: .Equal, toItem: control, attribute: .Baseline, multiplier: 1.0, constant: 0.0)
+			NSLayoutConstraint.activate([
+				NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: cellView, attribute: .leading, multiplier: 1.0, constant: 0.0),
+				NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: cellView, attribute: .centerX, multiplier: 1.0, constant: -4.0),
+				NSLayoutConstraint(item: label, attribute: .lastBaseline, relatedBy: .equal, toItem: control, attribute: .lastBaseline, multiplier: 1.0, constant: 0.0)
 			])
 		}
 		
 		return cellView
 	}
 	
-	public mutating func updateStackView(stackView: NSStackView, forFields fields: [Field?], gapSpacing: CGFloat, gravity: NSStackViewGravity) {
+	public mutating func update(stackView: NSStackView, forFields fields: [Field?], gapSpacing: CGFloat, gravity: NSStackViewGravity) {
 		let viewsWithGaps = fields.map{ $0.map{ cellView(forField: $0) } }
 		let views = viewsWithGaps.flatMap{ $0 }
 		
 		NSAnimationContext.runAnimationGroup({ context in
 			context.allowsImplicitAnimation = true
 			
-			stackView.setViews(views, inGravity: gravity)
+			stackView.setViews(views, in: gravity)
 			
 			for (isGap, view) in zip(viewsWithGaps.map{ $0 == nil }.dropFirst(), viewsWithGaps) {
-				if let view = view where isGap {
-					stackView.setCustomSpacing(gapSpacing, afterView: view)
+				if let view = view , isGap {
+					stackView.setCustomSpacing(gapSpacing, after: view)
 				}
 			}
 		}) {

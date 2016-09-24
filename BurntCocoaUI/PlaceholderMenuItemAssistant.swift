@@ -15,7 +15,7 @@ public class PlaceholderMenuItemAssistant<T: UIChoiceRepresentative> {
 	
 	public let placeholderMenuItem: NSMenuItem
 	public let itemsAssistant = MenuItemsAssistant<Item>()
-	private var menuItems: [NSMenuItem]?
+	fileprivate var menuItems: [NSMenuItem]?
 	
 	/**
 		Pass an array of item representatives for each menu item. Use nil for separators.
@@ -44,7 +44,7 @@ public class PlaceholderMenuItemAssistant<T: UIChoiceRepresentative> {
 	/**
 		Menu items are cached here so they are not thrown away and recreated every time.
 	*/
-	private var itemsCache = MenuItemsAssistantCache<Item>()
+	fileprivate var itemsCache = MenuItemsAssistantCache<Item>()
 	
 	public init(placeholderMenuItem: NSMenuItem) {
 		self.placeholderMenuItem = placeholderMenuItem
@@ -56,7 +56,7 @@ public class PlaceholderMenuItemAssistant<T: UIChoiceRepresentative> {
 	public func update() {
 		assert(placeholderMenuItem.menu != nil, "`placeholderMenuItem` must be in a menu.")
 		
-		placeholderMenuItem.hidden = true
+		placeholderMenuItem.isHidden = true
 		let menu = placeholderMenuItem.menu!
 		
 		if let oldMenuItems = menuItems {
@@ -65,21 +65,21 @@ public class PlaceholderMenuItemAssistant<T: UIChoiceRepresentative> {
 			}
 		}
 		
-		let placeholderIndex = menu.indexOfItem(placeholderMenuItem)
+		let placeholderIndex = menu.index(of: placeholderMenuItem)
 		
 		let newMenuItems = itemsAssistant.createItems(cache: itemsCache)
 		var insertIndex = placeholderIndex + 1
 		for menuItem in newMenuItems {
-			menu.insertItem(menuItem, atIndex: insertIndex)
+			menu.insertItem(menuItem, at: insertIndex)
 			insertIndex += 1
 		}
 		
 		menuItems = newMenuItems
 	}
 	
-	public func itemRepresentativeForMenuItem(menuItemToFind: NSMenuItem) -> Item? {
+	public func itemRepresentative(for menuItemToFind: NSMenuItem) -> Item? {
 		if let menuItems = menuItems {
-			for (index, menuItem) in menuItems.enumerate() {
+			for (index, menuItem) in menuItems.enumerated() {
 				if menuItem === menuItemToFind {
 					return menuItemRepresentatives[index]
 				}

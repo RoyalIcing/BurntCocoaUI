@@ -15,11 +15,11 @@ public struct SegmentedItemCustomization<T: UIChoiceRepresentative> {
 	/**
 	Customize the title dynamically, called for each segmented item representative.
 	*/
-	public var title: ((segmentedItemRepresentative: Item) -> String)?
+	public var title: ((_ segmentedItemRepresentative: Item) -> String)?
 	/**
 	Customize the integer tag, called for each segemented item representative.
 	*/
-	public var tag: ((segmentedItemRepresentative: T) -> Int?)?
+	public var tag: ((_ segmentedItemRepresentative: T) -> Int?)?
 }
 
 
@@ -69,8 +69,8 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 	*/
 	public var customization = SegmentedItemCustomization<Item>()
 	
-	private var hasUpdatedBefore: Bool = false
-	private var previouslySelectedUniqueIdentifier: ItemUniqueIdentifier?
+	fileprivate var hasUpdatedBefore: Bool = false
+	fileprivate var previouslySelectedUniqueIdentifier: ItemUniqueIdentifier?
 	
 	/**
 		Populates the segemented control with items created for each member of `segmentedItemRepresentatives`
@@ -89,8 +89,8 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 		// Update each segment from its corresponding representative
 		var segmentIndex: Int = 0
 		for segmentedItemRepresentative in segmentedItemRepresentatives {
-			let title = customization.title?(segmentedItemRepresentative: segmentedItemRepresentative) ?? segmentedItemRepresentative.title
-			let tag = customization.tag?(segmentedItemRepresentative: segmentedItemRepresentative) ?? 0
+			let title = customization.title?(segmentedItemRepresentative) ?? segmentedItemRepresentative.title
+			let tag = customization.tag?(segmentedItemRepresentative) ?? 0
 			
 			segmentedCell.setLabel(title, forSegment: segmentIndex)
 			segmentedCell.setTag(tag, forSegment: segmentIndex)
@@ -98,7 +98,7 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 			segmentIndex += 1
 		}
 		
-		if trackingMode == .SelectOne {
+		if trackingMode == .selectOne {
 			self.selectedUniqueIdentifier = previouslySelectedUniqueIdentifier
 		}
 		
@@ -113,7 +113,7 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 		
 		- returns: The item representative that matched.
 	*/
-	public func itemRepresentativeForSegmentAtIndex(segmentIndex: Int) -> Item {
+	public func itemRepresentative(at segmentIndex: Int) -> Item {
 		return segmentedItemRepresentatives[segmentIndex]
 	}
 	
@@ -124,8 +124,8 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 		
 		- returns: The item representative that matched.
 	*/
-	public func uniqueIdentifierForSegmentAtIndex(segmentIndex: Int) -> ItemUniqueIdentifier {
-		return itemRepresentativeForSegmentAtIndex(segmentIndex).uniqueIdentifier
+	public func uniqueIdentifier(at segmentIndex: Int) -> ItemUniqueIdentifier {
+    return itemRepresentative(at: segmentIndex).uniqueIdentifier
 	}
 	
 	/**
@@ -138,7 +138,7 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 				return nil
 			}
 			
-			return itemRepresentativeForSegmentAtIndex(index)
+      return itemRepresentative(at: index)
 		}
 		set {
 			selectedUniqueIdentifier = newValue?.uniqueIdentifier
@@ -158,7 +158,7 @@ public class SegmentedControlAssistant<T: UIChoiceRepresentative> {
 				return
 			}
 			
-			for (index, itemRepresentative) in segmentedItemRepresentatives.enumerate() {
+			for (index, itemRepresentative) in segmentedItemRepresentatives.enumerated() {
 				if itemRepresentative.uniqueIdentifier == newIdentifier {
 					segmentedControl.selectedSegment = index
 					return

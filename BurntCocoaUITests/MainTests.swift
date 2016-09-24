@@ -12,20 +12,20 @@ import BurntCocoaUI
 
 
 enum FruitChoice: Int {
-	case Apple
-	case Pear
-	case Banana
-	case Mango
+	case apple
+	case pear
+	case banana
+	case mango
 	
 	var name: String {
 		switch self {
-		case .Apple:
+		case .apple:
 			return "Apple"
-		case .Pear:
+		case .pear:
 			return "Pear"
-		case .Banana:
+		case .banana:
 			return "Banana"
-		case .Mango:
+		case .mango:
 			return "Mango"
 		}
 	}
@@ -44,10 +44,10 @@ extension FruitChoice: UIChoiceRepresentative {
 class MenuTests: XCTestCase {
 	var fruitChoiceRepresentatives: [FruitChoice] {
 		return [
-			.Apple,
-			.Pear,
-			.Banana,
-			.Mango
+			.apple,
+			.pear,
+			.banana,
+			.mango
 		]
 	}
 	
@@ -73,16 +73,16 @@ class MenuTests: XCTestCase {
 		menuAssistant.update()
 		
 		XCTAssert(menu.numberOfItems == fruitChoiceRepresentatives.count, "Correct count")
-		XCTAssert(menu.itemAtIndex(1)?.title == "Pear", "Second menu item has title 'Pear'")
-		XCTAssert(menuAssistant.itemRepresentativeForMenuItem(menu.itemWithTitle("Mango")!) == .Mango, "Representative for menu item with title 'Mango' is .Mango")
-		XCTAssert(menuAssistant.itemRepresentativeForMenuItem(NSMenuItem()) == nil, "Representative for newly created menu item is nil")
+		XCTAssert(menu.item(at: 1)?.title == "Pear", "Second menu item has title 'Pear'")
+    XCTAssert(menuAssistant.itemRepresentative(for: menu.item(withTitle: "Mango")!) == .mango, "Representative for menu item with title 'Mango' is .Mango")
+    XCTAssert(menuAssistant.itemRepresentative(for: NSMenuItem()) == nil, "Representative for newly created menu item is nil")
 		
 		
 		menuAssistant.menuItemRepresentatives = [nil]
 		menuAssistant.update()
 		
 		XCTAssert(menu.numberOfItems == 1, "Correct count of one")
-		XCTAssert(menu.itemAtIndex(0)?.separatorItem == true, "First menu item is separator")
+		XCTAssert(menu.item(at: 0)?.isSeparatorItem == true, "First menu item is separator")
 		
 		
 		menuAssistant.menuItemRepresentatives = []
@@ -102,15 +102,15 @@ class MenuTests: XCTestCase {
 		segmentedControlAssistant.update()
 		
 		XCTAssert(segmentedControl.segmentCount == fruitChoiceRepresentatives.count, "Correct count")
-		XCTAssert(segmentedControl.labelForSegment(1) == "Pear", "Second segmented item has label 'Pear'")
-		XCTAssert(segmentedControlAssistant.itemRepresentativeForSegmentAtIndex(3) == .Mango, "Representative for fourth segment is .Mango")
+		XCTAssert(segmentedControl.label(forSegment: 1) == "Pear", "Second segmented item has label 'Pear'")
+    XCTAssert(segmentedControlAssistant.itemRepresentative(at: 3) == .mango, "Representative for fourth segment is .Mango")
 		
 		
 		segmentedControl.selectedSegment = 2
-		XCTAssert(segmentedControlAssistant.selectedItemRepresentative == .Banana, "Selected item representative is .Banana, the third item")
+		XCTAssert(segmentedControlAssistant.selectedItemRepresentative == .banana, "Selected item representative is .Banana, the third item")
 		
 		
-		segmentedControlAssistant.selectedItemRepresentative = .Mango
+		segmentedControlAssistant.selectedItemRepresentative = .mango
 		XCTAssert(segmentedControl.selectedSegment == 3, "Selected segment is fourth item")
 		
 		

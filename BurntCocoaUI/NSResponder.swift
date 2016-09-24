@@ -12,7 +12,7 @@ import Cocoa
 extension NSResponder {
 	public var nextResponderChain: AnySequence<NSResponder> {
 		var currentNextResponder = nextResponder
-		return AnySequence(AnyGenerator<NSResponder> {
+		return AnySequence(AnyIterator<NSResponder> {
 			defer {
 				currentNextResponder = currentNextResponder?.nextResponder
 			}

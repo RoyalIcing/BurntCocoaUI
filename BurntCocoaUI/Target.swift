@@ -9,14 +9,14 @@
 import Cocoa
 
 public class Target : NSObject {
-	private var onPerform: (sender: AnyObject?) -> ()
+	fileprivate var onPerform: (_ sender: AnyObject?) -> ()
 	
-	public init(onPerform: (sender: AnyObject?) -> ()) {
+	public init(onPerform: @escaping (_ sender: AnyObject?) -> ()) {
 		self.onPerform = onPerform
 	}
 	
-	public func performed(sender: AnyObject?) {
-		onPerform(sender: sender)
+	public func performed(_ sender: AnyObject?) {
+		onPerform(sender)
 	}
 	
 	public var action: Selector = #selector(Target.performed(_:))
@@ -24,7 +24,7 @@ public class Target : NSObject {
 
 
 extension NSControl {
-	public func setActionHandler(onPerform: (sender: AnyObject?) -> ()) -> Target {
+	public func setActionHandler(_ onPerform: @escaping (_ sender: AnyObject?) -> ()) -> Target {
 		let target = Target(onPerform: onPerform)
 		self.target = target
 		self.action = target.action

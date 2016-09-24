@@ -146,7 +146,7 @@ public class MenuItemsAssistant<T : UIChoiceRepresentative> {
 	
 	- returns: The item representative that matched the menu item.
 	*/
-	public func itemRepresentative(for menuItemToFind: NSMenuItem, inMenuItems menuItems: [NSMenuItem]) -> T? {
+	public func itemRepresentative(for menuItemToFind: NSMenuItem, in menuItems: [NSMenuItem]) -> T? {
 		for (index, menuItem) in menuItems.enumerated() {
 			if menuItem === menuItemToFind {
 				return menuItemRepresentatives[index]

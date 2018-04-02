@@ -31,8 +31,8 @@ public func textFieldRenderer
 
 public func checkboxRenderer
 	<Button : NSButton>
-	(onChange: @escaping (NSCellStateValue) -> (), title: String)
-	-> (NSCellStateValue) -> Button
+	(onChange: @escaping (NSCell.StateValue) -> (), title: String)
+	-> (NSCell.StateValue) -> Button
 {
 	let button = Button()
 	button.title = title

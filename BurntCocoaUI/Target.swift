@@ -15,7 +15,7 @@ public class Target : NSObject {
 		self.onPerform = onPerform
 	}
 	
-	public func performed(_ sender: AnyObject?) {
+	@objc public func performed(_ sender: AnyObject?) {
 		onPerform(sender)
 	}
 	

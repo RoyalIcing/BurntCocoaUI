@@ -61,7 +61,7 @@ public class MenuAssistant<T: UIChoiceRepresentative> {
 	/**
 		Populates the menu with menu items created for each member of `menuItemRepresentatives`
 	*/
-	public func update() -> NSMenu {
+	@discardableResult public func update() -> NSMenu {
 		menu.removeAllItems()
 		
 		let menuItems = itemsAssistant.createItems(cache: itemsCache)

@@ -27,7 +27,7 @@ public protocol FieldsProducer {
 	
 	mutating func label(forField field: Field) -> NSTextField?
 	mutating func cellView(forField field: Field) -> NSView
-	mutating func update(stackView: NSStackView, forFields fields: [Field?], gapSpacing: CGFloat, gravity: NSStackViewGravity)
+	mutating func update(stackView: NSStackView, forFields fields: [Field?], gapSpacing: CGFloat, gravity: NSStackView.Gravity)
 }
 
 extension FieldsProducer {
@@ -81,9 +81,9 @@ extension FieldsProducer {
 		return cellView
 	}
 	
-	public mutating func update(stackView: NSStackView, forFields fields: [Field?], gapSpacing: CGFloat, gravity: NSStackViewGravity) {
+	public mutating func update(stackView: NSStackView, forFields fields: [Field?], gapSpacing: CGFloat, gravity: NSStackView.Gravity) {
 		let viewsWithGaps = fields.map{ $0.map{ cellView(forField: $0) } }
-		let views = viewsWithGaps.flatMap{ $0 }
+		let views = viewsWithGaps.compactMap{ $0 }
 		
 		NSAnimationContext.runAnimationGroup({ context in
 			context.allowsImplicitAnimation = true

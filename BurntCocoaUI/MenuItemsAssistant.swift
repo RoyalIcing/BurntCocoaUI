@@ -87,7 +87,7 @@ public class MenuItemsAssistant<T : UIChoiceRepresentative> {
 		
 		let customization = self.customization
 		
-		let items = menuItemRepresentatives.map { menuItemRepresentative -> NSMenuItem in
+		let items = menuItemRepresentatives!.map { menuItemRepresentative -> NSMenuItem in
 			if let menuItemRepresentative = menuItemRepresentative {
 				let title = customization.title?(menuItemRepresentative) ?? menuItemRepresentative.title
 				let representedObject = customization.representedObject?(menuItemRepresentative)

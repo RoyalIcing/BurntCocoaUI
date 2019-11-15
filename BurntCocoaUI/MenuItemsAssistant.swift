@@ -87,6 +87,8 @@ public class MenuItemsAssistant<T : UIChoiceRepresentative> {
 		
 		let customization = self.customization
 		
+		var usedCachedIdentifiers = Set<ItemUniqueIdentifier>()
+		
 		let items = menuItemRepresentatives!.map { menuItemRepresentative -> NSMenuItem in
 			if let menuItemRepresentative = menuItemRepresentative {
 				let title = customization.title?(menuItemRepresentative) ?? menuItemRepresentative.title
@@ -98,6 +100,10 @@ public class MenuItemsAssistant<T : UIChoiceRepresentative> {
 				let (action, target) = customization.actionAndTarget?(menuItemRepresentative) ?? (nil, nil)
 				
 				let uniqueIdentifier = menuItemRepresentative.uniqueIdentifier
+				
+				assert(!usedCachedIdentifiers.contains(uniqueIdentifier), "Duplicate unique identifier \(uniqueIdentifier) for menu assistant")
+				
+				usedCachedIdentifiers.insert(uniqueIdentifier)
 				previousCachedIdentifiers.remove(uniqueIdentifier)
 				
 				let item: NSMenuItem

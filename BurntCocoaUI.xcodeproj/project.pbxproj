@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		B2469A881CCDA10900D0CC6C /* UIControlAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2469A871CCDA10900D0CC6C /* UIControlAssistant.swift */; };
 		B2469A941CD046C000D0CC6C /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2469A931CD046C000D0CC6C /* Target.swift */; };
 		B2469A961CD0482100D0CC6C /* Renderers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2469A951CD0482100D0CC6C /* Renderers.swift */; };
+		B260DEAE237E487C0062D945 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = B260DEAD237E487C0062D945 /* CwlPreconditionTesting */; };
 		B28EC6571B04401900857622 /* MenuItemsAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6561B04401900857622 /* MenuItemsAssistant.swift */; };
 		B28EC6591B0448D000857622 /* PlaceholderMenuItemAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6581B0448D000857622 /* PlaceholderMenuItemAssistant.swift */; };
 		B28EC6621B05982F00857622 /* UIChoiceRepresentative.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EC6611B05982F00857622 /* UIChoiceRepresentative.swift */; };
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B260DEAE237E487C0062D945 /* CwlPreconditionTesting in Frameworks */,
 				B2D39B2E1AF670CE003D6738 /* BurntCocoaUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +198,9 @@
 				B2D39B301AF670CE003D6738 /* PBXTargetDependency */,
 			);
 			name = BurntCocoaUITests;
+			packageProductDependencies = (
+				B260DEAD237E487C0062D945 /* CwlPreconditionTesting */,
+			);
 			productName = BurntCocoaUITests;
 			productReference = B2D39B2D1AF670CE003D6738 /* BurntCocoaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -230,6 +235,9 @@
 				Base,
 			);
 			mainGroup = B2D39B181AF670CE003D6738;
+			packageReferences = (
+				B260DEAC237E487C0062D945 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
+			);
 			productRefGroup = B2D39B231AF670CE003D6738 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -415,7 +423,11 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = BurntCocoaUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.burntcaramel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -438,7 +450,11 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = BurntCocoaUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.burntcaramel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,7 +478,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = BurntCocoaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.burntcaramel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BurntCocoaUITests/BurntCocoaUITests-Bridging-Header.h";
@@ -481,7 +501,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = BurntCocoaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.burntcaramel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BurntCocoaUITests/BurntCocoaUITests-Bridging-Header.h";
@@ -520,6 +544,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B260DEAC237E487C0062D945 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattgallagher/CwlPreconditionTesting.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B260DEAD237E487C0062D945 /* CwlPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B260DEAC237E487C0062D945 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPreconditionTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B2D39B191AF670CE003D6738 /* Project object */;
 }

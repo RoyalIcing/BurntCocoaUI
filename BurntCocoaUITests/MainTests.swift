@@ -9,6 +9,7 @@
 import Cocoa
 import XCTest
 import BurntCocoaUI
+import CwlPreconditionTesting
 
 
 enum FruitChoice: Int {
@@ -51,6 +52,23 @@ class MenuTests: XCTestCase {
 		]
 	}
 	
+	var fruitChoiceRepresentatives2: [FruitChoice] {
+		return [
+			.pear,
+			.apple,
+			.mango
+		]
+	}
+	
+	var choicesWithDuplicate: [FruitChoice] {
+		return [
+			.pear,
+			.pear,
+			.apple,
+			.mango
+		]
+	}
+	
 	override func setUp() {
 		super.setUp()
 		
@@ -66,10 +84,11 @@ class MenuTests: XCTestCase {
 		let menuAssistant = MenuAssistant<FruitChoice>(menu: menu)
 		
 		// Convert into array of optional types for menuAssistant
-		let fruitChoiceRepresentatives:[FruitChoice?] = self.fruitChoiceRepresentatives.map { $0 }
+		let choices1: [FruitChoice?] = self.fruitChoiceRepresentatives.map { $0 }
+		let choices2: [FruitChoice?] = self.fruitChoiceRepresentatives2.map { $0 }
+		let choicesWithDuplicate: [FruitChoice?] = self.choicesWithDuplicate.map { $0 }
 		
-		
-		menuAssistant.menuItemRepresentatives = fruitChoiceRepresentatives
+		menuAssistant.menuItemRepresentatives = choices1
 		menuAssistant.update()
 		
 		XCTAssert(menu.numberOfItems == fruitChoiceRepresentatives.count, "Correct count")
@@ -77,6 +96,13 @@ class MenuTests: XCTestCase {
     XCTAssert(menuAssistant.itemRepresentative(for: menu.item(withTitle: "Mango")!) == .mango, "Representative for menu item with title 'Mango' is .Mango")
     XCTAssert(menuAssistant.itemRepresentative(for: NSMenuItem()) == nil, "Representative for newly created menu item is nil")
 		
+		menuAssistant.menuItemRepresentatives = choices2
+		menuAssistant.update()
+		
+		XCTAssert(menu.numberOfItems == choices2.count, "Correct count")
+		XCTAssert(menu.item(at: 1)?.title == "Apple", "Second menu item has title 'Apple'")
+    XCTAssert(menuAssistant.itemRepresentative(for: menu.item(withTitle: "Mango")!) == .mango, "Representative for menu item with title 'Mango' is .Mango")
+    XCTAssert(menuAssistant.itemRepresentative(for: NSMenuItem()) == nil, "Representative for newly created menu item is nil")
 		
 		menuAssistant.menuItemRepresentatives = [nil]
 		menuAssistant.update()
@@ -89,6 +115,20 @@ class MenuTests: XCTestCase {
 		menuAssistant.update()
 		
 		XCTAssert(menu.numberOfItems == 0, "Correct count of zero")
+	}
+	
+	func testMenuWithDuplicates() {
+		let menu = NSMenu()
+		let menuAssistant = MenuAssistant<FruitChoice>(menu: menu)
+		
+		// Convert into array of optional types for menuAssistant
+		let choicesWithDuplicate: [FruitChoice?] = self.choicesWithDuplicate.map { $0 }
+		
+		menuAssistant.menuItemRepresentatives = choicesWithDuplicate
+		let exception = catchBadInstruction {
+			menuAssistant.update()
+		}
+		XCTAssertNotNil(exception)
 	}
 	
 	func testCreateSegmentedControl() {

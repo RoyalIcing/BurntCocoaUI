@@ -223,11 +223,11 @@
 			};
 			buildConfigurationList = B2D39B1C1AF670CE003D6738 /* Build configuration list for PBXProject "BurntCocoaUI" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = B2D39B181AF670CE003D6738;
 			productRefGroup = B2D39B231AF670CE003D6738 /* Products */;
